@@ -1,11 +1,9 @@
-import {OPEN_MODAL} from "./types";
+import { combineReducers } from 'redux'
+import {modalReducer} from "./modalReducer";
+import {cardReducer} from "./cardReducer";
 
-export const rootReducer = (state = false, action) => {
-    switch(action.type) {
-        default: return state
-        case "OPEN_MODAL": {
-            return true
-        }
-    }
-    return state
-}
+
+export const rootReducer = combineReducers({
+    modalOpener: modalReducer,
+    cardOpener: cardReducer
+})

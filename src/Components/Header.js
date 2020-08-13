@@ -23,7 +23,8 @@ const style = {
         alignItems: "center",
         color: "lightgrey",
         position: 'fixed',
-        width: "100%"
+        width: "100%",
+        zIndex: '1'
     },
     form: {
         display: 'inline'
@@ -85,10 +86,8 @@ const mapDispatchToProps = dispatch => {
         }
     }
 }
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        modalState: state
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+// const mapStateToProps = state => ({
+//      modalState: state.modalReducer
+//
+// })
+export default connect(null, mapDispatchToProps)(Header);

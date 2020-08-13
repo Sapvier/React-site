@@ -19,18 +19,33 @@ const style= {
         height: '200px',
         width: '400px',
         borderRadius: '5px',
-        background: 'white'
+        background: 'white',
+    },
+    close_button: {
+        float: 'right',
+        background: 'red',
+        color: "white",
+        borderRadius: "30%",
+        border: 'none',
+        cursor: 'pointer'
     }
 
 }
 
-function Modal({modalState}) {
+function Modal({modalState, closeModal}) {
+    const onModalClick = (e) => {
+        e.stopPropagation();
+        }
+    const handleClose = (e) => {
+        e.preventDefault()
+        closeModal()
+    }
     if (modalState) {
         return (
             <React.Fragment>
-                    <div style={style.modal_cover}>
-                        <div style={style.modal_window}>
-                            <button>&times;</button>
+                    <div style={style.modal_cover} onClick={handleClose}>
+                        <div style={style.modal_window} onClick={onModalClick}>Pop-up window
+                            <button style={style.close_button} onClick={handleClose}>&times;</button>
                         </div>
                     </div>
             </React.Fragment>
@@ -38,11 +53,15 @@ function Modal({modalState}) {
     }
     return <React.Fragment/>
 }
-const mapStateToProps = state => {
-    console.log(state)
+const mapStateToProps = state => ({
+    modalState: state.modalOpener.isOpen
+
+})
+const mapDispatchToProps = dispatch => {
     return {
-        modalState: state
+        closeModal: () => {dispatch({type: "CLOSE_MODAL"})
+        }
     }
 }
 
-export default connect(mapStateToProps, null)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
