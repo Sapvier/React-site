@@ -1,6 +1,4 @@
-import {OPEN_MODAL} from "./types";
-import {CLOSE_MODAL} from "./types";
-import {CLOSE_CARD} from "./types";
+import {OPEN_MODAL, CLOSE_MODAL, CLOSE_CARD, FETCH_CARDS} from "./types";
 
 export function openModal() {
     return {
@@ -17,3 +15,11 @@ export function closeCard() {
         type: "CLOSE_CARD"
     }
 }
+export function fetchCards() {
+    return async dispatch => {
+        const response = await fetch('http://api.tvmaze.com/search/shows?q=batman')
+        const json = await response.json()
+        dispatch({type: FETCH_CARDS, payload: json})
+    }
+}
+

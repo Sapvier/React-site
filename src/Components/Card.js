@@ -1,48 +1,34 @@
 import React from "react";
-import {connect} from "react-redux";
 
+const Card = ({card}) => {
+    const style = {
+        image: {
+            height: '280px',
+            width: '180px',
+            backgroundImage: `url(${card.show.image.medium})`,
+            backgroundSize: 'cover'
+        },
+        card: {
+            height: '350px',
+            width: '180px',
+            background: 'grey',
+            borderRadius: '5px',
+            marginLeft: '3rem',
+            marginRight: '3rem',
+            marginTop: '5rem'
 
-const style = {
-    text: {
-        background: 'rgba(255, 0 ,0, .7)',
-        height: '50px',
-        width: '250px',
-        cursor: "pointer",
-        border: 'none',
-        color: "white",
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-
-}
-
-
-const Card = ({cardState, closeCard}) => {
-    const handleCardClose = (e) => {
-        e.preventDefault()
-        closeCard()
-    }
-    if (cardState) {
-        return (
-            <div style={style.text} onClick={handleCardClose}><strong>CLOSE ME</strong></div>
-         );
-    }
-    return <div />
-}
-
-const mapStateToProps = state => ({
-        cardState: state.cardOpener.isCardOpen
-
-})
-const mapDispatchToProps = dispatch => {
-        return {
-            closeCard: () => {
-                dispatch({type: "CLOSE_CARD"})
-            }
+        },
+        text: {
+            textAlign: 'center'
         }
+    }
+    return (
+        <div style={style.card}>
+            <div style={style.image}/>
+            <p style={style.text}>{card.show.name}</p>
+        </div>
+    )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
-
+export default Card;
 

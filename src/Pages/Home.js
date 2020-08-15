@@ -1,6 +1,6 @@
 import React from 'react';
 import wpw from "../img/wpw.jpg"
-import Card from "../Components/Card";
+import Card from "../Components/CloseMe";
 
 const style = {
     backgroundImage: `url(${wpw})`,

@@ -1,5 +1,4 @@
-import {OPEN_MODAL} from "./types";
-import {CLOSE_MODAL} from "./types";
+import {OPEN_MODAL, CLOSE_MODAL} from "./types";
 
 const initialState = {
     isOpen: false

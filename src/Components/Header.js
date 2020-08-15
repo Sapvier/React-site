@@ -1,13 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Projects from "../Pages/Projects";
-import AboutUs from "../Pages/AboutUs";
-import Blog from "../Pages/Blog";
-import Contacts from "../Pages/Contacts";
+import Ajax from "../Pages/Ajax";
+import Validation from "../Pages/Validation";
+import Pagination from "../Pages/Pagination";
 import Home from "../Pages/Home";
 import Modal from "./Modal";
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux';
 
 const style = {
     link: {
@@ -53,26 +52,26 @@ function Header({orderProject}) {
 
     return (
         <>
-        <div style={style.container}>
-            <h2><a style={style.home} href="/">ARCHINESIS</a></h2>
-            <nav>
-                <a style={style.link} href="/projects">ПРОЕКТЫ</a>
-                <a style={style.link} href="/about-us">О НАС</a>
-                <a style={style.link} href="/blog">БЛОГ</a>
-                <a style={style.link} href="/contacts">КОНТАКТЫ</a>
-                <form style={style.form}>
-                    <button style={style.button} onClick={handleClick}>ЗАКАЗАТЬ ПРОЕКТ</button>
-                </form>
-            </nav>
-        </div>
+            <div style={style.container}>
+                <h2><a style={style.home} href="/">REACT APP</a></h2>
+                <nav>
+                    <a style={style.link} href="/projects">ПРОЕКТЫ</a>
+                    <a style={style.link} href="/ajax">AJAX ЗАПРОСЫ</a>
+                    <a style={style.link} href="/validation">ВАЛИДАЦИЯ</a>
+                    <a style={style.link} href="/pagination">ПАГИНАЦИЯ</a>
+                    <form style={style.form}>
+                        <button style={style.button} onClick={handleClick}>POP - UP</button>
+                    </form>
+                </nav>
+            </div>
         <Modal />
         <Router>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/projects" component={Projects} />
-                <Route exact path="/about-us" component={AboutUs} />
-                <Route exact path="/blog" component={Blog} />
-                <Route exact path="/contacts" component={Contacts} />
+                <Route exact path="/ajax" component={Ajax} />
+                <Route exact path="/validation" component={Validation} />
+                <Route exact path="/pagination" component={Pagination} />
 
             </Switch>
         </Router>
