@@ -1,22 +1,23 @@
 import React, {useEffect} from 'react';
-import {fetchCards} from '../redux/actions'
+import {changePage} from '../redux/actions'
 import {useDispatch, useSelector} from "react-redux";
-import Card from "../Components/Card";
+import PagCard from "./PagCard";
+
+
 
 
 function PaginationCards() {
     const dispatch = useDispatch()
-    const films = useSelector(state => state.cardReducer.cards)
+    const items = useSelector(state => state.paginationReducer.items)
+    const page = useSelector(state => state.paginationReducer.currentPage)
 
     useEffect(() => {
-        dispatch(fetchCards())
-    }, [])
-
+        dispatch(changePage(page))
+    }, []);
 
     return (
+        items.map(item => <PagCard card={item}/>)
+    )
 
-            films.map(film => <Card card={film}/>)
-    );
 }
-
 export default PaginationCards;

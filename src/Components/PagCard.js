@@ -1,17 +1,19 @@
 import React from "react";
 
-const Card = ({card}) => {
+const PagCard = ({card}) => {
+
     const style = {
         image: {
-            height: '280px',
+            height: '230px',
             width: '180px',
-            backgroundImage: `url(${card.show.image.medium})`,
-            backgroundSize: 'cover'
+            backgroundImage: `url(${card.download_url})`,
+            backgroundSize: 'cover',
+            backgroundPosition: "center"
         },
         card: {
-            height: '350px',
+            height: '310px',
             width: '180px',
-            background: 'grey',
+            background: 'rgba(255,140,105, 0.5)',
             borderRadius: '5px',
             marginLeft: '3rem',
             marginRight: '3rem',
@@ -22,14 +24,14 @@ const Card = ({card}) => {
             textAlign: 'center'
         }
     }
+
     return (
         <div style={style.card}>
             <div style={style.image}/>
-            <p style={style.text}>{card.show.name}</p>
+            <p style={style.text}>{card.author}</p>
         </div>
-    )
+        )
+
 }
 
-export default Card;
-
-
+export default PagCard;

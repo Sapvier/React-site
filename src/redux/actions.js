@@ -1,4 +1,4 @@
-import {OPEN_MODAL, CLOSE_MODAL, CLOSE_CARD, FETCH_CARDS} from "./types";
+import {OPEN_MODAL, CLOSE_MODAL, CLOSE_CARD, FETCH_CARDS, NEXT_PAGE, CHANGE_PAGE} from "./types";
 
 export function openModal() {
     return {
@@ -22,4 +22,10 @@ export function fetchCards() {
         dispatch({type: FETCH_CARDS, payload: json})
     }
 }
-
+export function changePage(count) {
+    return async dispatch => {
+        const response = await fetch(`https://picsum.photos/v2/list?page=${count}&limit=11`)
+        const json = await response.json()
+        dispatch({type: CHANGE_PAGE, payload: json, currentPage: count})
+    }
+}
