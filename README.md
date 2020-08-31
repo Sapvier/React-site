@@ -1,1 +1,0 @@
-Testing and implementing all the learned React features in this project
