@@ -6,7 +6,8 @@ const Card = ({card}) => {
             height: '280px',
             width: '180px',
             backgroundImage: `url(${card.show.image.medium})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            backgroundPosition: "center"
         },
         card: {
             height: '350px',

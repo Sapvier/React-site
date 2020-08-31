@@ -4,3 +4,7 @@ export const CLOSE_CARD = "CLOSE_CARD"
 export const FETCH_CARDS = "FETCH_CARDS"
 export const NEXT_PAGE = "NEXT_PAGE"
 export const CHANGE_PAGE = "CHANGE_PAGE"
+export const EVENT_ADD = "EVENT_ADD"
+export const POST_EVENT = "POST_EVENT"
+export const GET_EVENT = "GET_EVENT"
+

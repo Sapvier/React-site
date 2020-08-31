@@ -1,6 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Projects from "../Pages/Projects";
+import {BrowserRouter as Router, Switch, Route, NavLink} from "react-router-dom";
+import Events from "../Pages/Events";
 import Ajax from "../Pages/Ajax";
 import Validation from "../Pages/Validation";
 import Pagination from "../Pages/Pagination";
@@ -53,9 +53,9 @@ function Header({orderProject}) {
     return (
         <>
             <div style={style.container}>
-                <h2><a style={style.home} href="/">REACT APP</a></h2>
+                <h2><a style={style.home} exact href="/">REACT APP</a></h2>
                 <nav>
-                    <a style={style.link} href="/projects">ПРОЕКТЫ</a>
+                    <a style={style.link} href="/events">СОБЫТИЯ</a>
                     <a style={style.link} href="/ajax">AJAX ЗАПРОСЫ</a>
                     <a style={style.link} href="/validation">ВАЛИДАЦИЯ</a>
                     <a style={style.link} href="/pagination">ПАГИНАЦИЯ</a>
@@ -68,7 +68,7 @@ function Header({orderProject}) {
         <Router>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/projects" component={Projects} />
+                <Route exact path="/events" component={Events} />
                 <Route exact path="/ajax" component={Ajax} />
                 <Route exact path="/validation" component={Validation} />
                 <Route exact path="/pagination" component={Pagination} />

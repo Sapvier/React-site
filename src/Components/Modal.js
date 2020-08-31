@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-
+import Form from '../Components/Form'
 
 const style= {
     modal_cover: {
@@ -44,8 +44,9 @@ function Modal({modalState, closeModal}) {
         return (
             <React.Fragment>
                     <div style={style.modal_cover} onClick={handleClose}>
-                        <div style={style.modal_window} onClick={onModalClick}>Pop-up window
+                        <div style={style.modal_window} onClick={onModalClick}>Добавление нового события
                             <button style={style.close_button} onClick={handleClose}>&times;</button>
+                            <Form />
                         </div>
                     </div>
             </React.Fragment>

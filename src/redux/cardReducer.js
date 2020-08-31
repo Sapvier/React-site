@@ -1,5 +1,3 @@
-import {OPEN_MODAL} from "./types";
-import {CLOSE_MODAL} from "./types";
 
 const initialState = {
     isCardOpen: true
